@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <div class="login-section">
+        <div class="login-box">
+            <form action="/login" method="post">
+                <div class="user-box">
+                    <input name="username" id="username" type="text" autocomplete="off" required/>
+                    <label>Login</label>
+                </div>
+                <div class="user-box">
+                    <input name="password" id="password" type="password" required/>
+                    <label>Hasło</label>
+                </div>
+                <center><button type="submit">Zaloguj</button></center>
+            </form>
+        </div>
+    </div>
+        
+    <div class="description-section">
+        <h3>Komunikator. Zaloguj się by porozmawiać.</h3>
+
+    </div>
+  </body>
+</html>
