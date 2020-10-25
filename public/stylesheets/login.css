@@ -30,6 +30,7 @@ html {
     height:auto;
     text-align: center;
     justify-content: center;
+    color:white;
   }
 
   .login-box {
@@ -123,4 +124,16 @@ html {
   left: 0;
   color: #03e9f4;
   font-size: 12px;
+}
+
+.registry-section{
+    position:absolute;
+    width:100%;
+    top:90%;
+    text-align: center;
+}
+a{
+    margin-left:-30%;
+    width:100%;
+    color:white;
 }
