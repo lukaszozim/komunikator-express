@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 
+//połączenie do bazy
 config = {
     database: "komunikator",
     username: "PHP",
