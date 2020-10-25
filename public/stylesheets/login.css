@@ -127,13 +127,14 @@ html {
 }
 
 .registry-section{
+  display:block;
     position:absolute;
+    left:0%;
     width:100%;
     top:90%;
     text-align: center;
+    justify-content: center;
 }
 a{
-    margin-left:-30%;
-    width:100%;
     color:white;
 }
