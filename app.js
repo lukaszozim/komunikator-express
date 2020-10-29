@@ -23,14 +23,15 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/registration', registrationRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+});
+
+app.use('/', function(err, req, res, next) {
+  if(err.status=='404'){
+    res.send('Wystąpił błąd');
+  }
 });
 
 // error handler
@@ -44,10 +45,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use(function(err, req, res, next) {
-  if(err.status==='404'){
-    res.send('Wystąpił błąd');
-  }
-});
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('/registration', registrationRouter);
+
 
 module.exports = app;
