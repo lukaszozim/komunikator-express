@@ -7,7 +7,7 @@ const User = require('../models/User');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('login/login', { title: 'Komunikator Ozima' });
+    res.render('login/login', { title: 'Komunikator' });
   });
 
   module.exports = router;
