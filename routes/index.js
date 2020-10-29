@@ -4,9 +4,15 @@ var mysql = require('mysql');
 const config = require('../db/dbConfig')
 const Sequelize = require("sequelize");
 const User = require('../models/User');
+const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if(req.isAuthenticated()){
+    next();
+  }else{
+    res.redirect('/login');
+  }
   res.render('index', { title: 'Express' });
 });
 
