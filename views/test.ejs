@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style> 
+        @media all and (min-width:600px) {
+        body {
+            background-color:red;
+        }
+    }
+
+    @media all and (min-width:800px) {
+        body {
+            background-color:blue;
+        }
+    }
+      </style>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="registration-form">
+        <form action="/registration" method="post">
+            <div class="user-box">
+                <label>email</label><input type="text" name="username" id="username" required/>
+                <label>hasło</label><input type="password" name="password" id="password" required/>
+                <button type="submit">Zarejestruj</button>
+            </div>
+        </form>
+    </div>
+  </body>
+</html>
