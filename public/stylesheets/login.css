@@ -138,7 +138,7 @@ a{
     color:white;
 }
 
-@media all and (min-width:479px) and (max-width:800px) and (orientation:portrait) {
+@media all and (min-width:479px) and (max-width:800px){
   .login-section{
     position:absolute;
     top:10vh;
