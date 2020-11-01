@@ -14,7 +14,6 @@ html {
       margin-right: auto;
   }
 
-  
   .login-section{
     position:absolute;
     top:10vh;
@@ -116,6 +115,8 @@ html {
     background: linear-gradient(90deg, transparent, #03e9f4);
     animation: btn-anim1 1s linear infinite;
   }
+  
+
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label
 {
@@ -138,10 +139,11 @@ a{
     color:white;
 }
 
-@media all and (min-width:479px) and (max-width:800px){
+
+@media all and (min-width:400px) {
   .login-section{
     position:absolute;
-    top:10vh;
+    top:5vh;
     left:10vw;
     width:80vw;
     height:60vh;
@@ -149,15 +151,54 @@ a{
 
   .description-section{
     position:absolute;
-    top:75vh;
+    top:70vh;
     left:10vw;
     width:80vw;
     height:auto;
     text-align: center;
     justify-content: center;
     color:white;
-    font-size: small;
   }
-  
 }
 
+@media all and (min-width:600px) {
+  .login-section{
+    position:absolute;
+    top:10vh;
+    left:78vw;
+    width:20vw;
+    height:80vh;
+  }
+
+  .description-section{
+    position:absolute;
+    top:30vh;
+    left:10vw;
+    width:80vw;
+    height:auto;
+    text-align: center;
+    justify-content: center;
+    color:white;
+  }
+}
+
+@media all and (min-width:800px) {
+  .login-section{
+    position:absolute;
+    top:10vh;
+    left:78vw;
+    width:20vw;
+    height:80vh;
+  }
+
+  .description-section{
+    position:absolute;
+    top:30vh;
+    left:10vw;
+    width:auto;
+    height:auto;
+    text-align: center;
+    justify-content: center;
+    color:white;
+  }
+}
