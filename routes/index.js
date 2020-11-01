@@ -8,13 +8,6 @@ const passport = require('passport');
 const passportAuth = require('../services/passportAuth');
 
 
-/* Test media query*/
-router.get('/test', function(req, res, next) {
-
-  //passportAuth(req, res, next);
-  res.render('test', { title: 'Express' });
-});
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.isAuthenticated()){
