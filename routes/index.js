@@ -5,6 +5,7 @@ const config = require('../db/dbConfig')
 const Sequelize = require("sequelize");
 const User = require('../models/User');
 const passport = require('passport');
+const passportAuth = require('../services/passportAuth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,10 +14,17 @@ router.get('/', function(req, res, next) {
   }else{
     res.redirect('/login');
   }
+  //passportAuth(req, res, next);
   res.render('index', { title: 'Express' });
 });
 
 router.get('/user', async function(req, res, next) {
+  if(req.isAuthenticated()){
+    next();
+  }else{
+    res.redirect('/login');
+  }
+  
  let user = await User.findByPk(1);
  console.log(user.username);
   res.render('index', { title: 'Express', user: user.username });
