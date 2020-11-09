@@ -5,8 +5,35 @@
     <% include includes/header.ejs %>
     <link rel='stylesheet' href='/stylesheets/base.css' />
     <link rel='stylesheet' href='/stylesheets/header.css' />
+    <script src="/socket.io/socket.io.js"></script>
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+      var socket = io();
+  
+      function sendFunction() {
+        socket.emit('new message', $('#new-message').val());
+        $('#new-message').val('');
+      }
+
+    socket.on('chat message', function(msg){
+      $('#messages-area').append($('<li>').text(msg));
+    });   
+
+   
+    </script>
   </head>
   <body>
+    <br/>
+    <br/>
+    <br/>
+    <ul id="messages-area"></ul>
 
+    <form id="form" onsubmit="return false;">
+  
+      <input id="new-message" type="text" /><button onclick="sendFunction()">Send</button>
+  
+    </form>
   </body>
+  
 </html>

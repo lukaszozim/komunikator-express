@@ -16,6 +16,13 @@ var loginRouter = require('./routes/login');
 var registrationRouter = require('./routes/registration');
 
 var app = express();
+app.io = require('socket.io')();
+
+app.io.on('connection', function(socket){
+  socket.on('new message', function(msg){
+    app.io.emit('chat message' , msg);
+    });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
