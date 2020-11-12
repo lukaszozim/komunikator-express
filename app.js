@@ -17,6 +17,7 @@ var registrationRouter = require('./routes/registration');
 
 var app = express();
 app.io = require('socket.io')();
+app.set('socketio', app.io);
 
 app.io.on('connection', function(socket){
   socket.on('new message', function(msg){

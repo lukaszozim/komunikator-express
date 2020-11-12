@@ -7,3 +7,67 @@ html {
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
   }
+
+  .main{
+    position:absolute;
+    top:15%;
+    left:15%;
+    height:75%;
+    width:70%;
+    border-radius: 2.5vh;
+    background-color: rgba(245, 245, 240, 0.2);
+  }
+  .conversations-section{
+    position:absolute;
+    top:5%;
+    left:5%;
+    height:85%;
+    width:90%;
+    overflow-y: scroll;
+  }
+  .texting-section{
+    position:absolute;
+    top:90%;
+    left:5%;
+    height:10%;
+    width:90%;
+  }
+
+  #new-message{
+    margin-left:0.5%;
+    width:78%;
+  }
+
+  .send-btn{
+    margin-left:0.5%;
+    width:18%
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+  .message{
+
+  }
+
+  .message-author
+  {
+    font-weight: bold;
+  }

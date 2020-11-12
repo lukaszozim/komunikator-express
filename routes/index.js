@@ -6,30 +6,35 @@ const Sequelize = require("sequelize");
 const User = require('../models/User');
 const passport = require('passport');
 const passportAuth = require('../services/passportAuth');
-
+const chatService = require('../services/chatService');
+const conversations = require('../models/conversations');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  if(req.isAuthenticated()){
-    next();
-  }else{
-    res.redirect('/login');
-  }
-  //passportAuth(req, res, next);
-  res.render('index', { title: 'Express' });
+router.get('/', async function(req, res, next) {
+  await auth(req, res, next);
+
+  console.log(req.user);
+  //let user = await User.findByPk(1);
+  //let conversation = await conversations.findAll();
+  let conversation = await chatService.getConversations();
+  
+  res.render('index', { title: 'Express', conversations : conversation, user: req.user.username});
+
 });
 
 router.get('/user', async function(req, res, next) {
-  if(req.isAuthenticated()){
-    next();
-  }else{
-    res.redirect('/login');
-  }
-  
+
  let user = await User.findByPk(1);
  console.log(user.username);
+ auth(req, res, next);
   res.render('index', { title: 'Express', user: user.username });
 });
+
+function auth(req, res, next){
+      if(!req.isAuthenticated()){
+        res.redirect('/login');
+    }
+}
 
 /*
 router.get('/seq', async function(req, res, next) {

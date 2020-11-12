@@ -18,3 +18,9 @@ header{
     justify-content: center;
     text-align: right;
 }
+
+.logout{
+    text-decoration: none;
+    float:right;
+    margin-right:5%;
+}

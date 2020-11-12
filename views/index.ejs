@@ -14,22 +14,30 @@
         $('#new-message').val('');
       }
     socket.on('chat message', function(msg){
-      $('#messages-area').append($('<li>').text(msg));
+      let user = $('#user').val();
+      $('#messages-area').append($('<div class="message-author">').text(user)).append($('<div class="message">').text(msg));
     });   
 
     </script>
   </head>
   <body>
-    <br/>
-    <br/>
-    <br/>
-    <ul id="messages-area"></ul>
-
-    <form id="form" onsubmit="return false;">
-  
-      <input id="new-message" type="text" /><button onclick="sendFunction()">Send</button>
-  
+    <div class="main">
+      <div class="conversations-section">
+        <ul id="messages-area">
+          <% conversations.forEach(function(conv) { %>
+            <div class="message">
+                <div class="message-author"><%= conv.login %></div><div><%= conv.content %></div>
+            </div>
+        <% }); %>
+        </ul>
+        <form id="form" onsubmit="return false;">
+      </div>
+      <div class="texting-section">
+        <input id="new-message" type="text" /><button class="send-btn" onclick="sendFunction()">Wyślij</button>
+      </div>
     </form>
+    </div>
+    <input type="hidden" id="user" value="<%= user %>"/>
   </body>
   
 </html>
