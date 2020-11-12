@@ -10,12 +10,15 @@
     <script>
       var socket = io();
       function sendFunction() {
-        socket.emit('new message', $('#new-message').val());
+        let author = $('#user').val();
+        let message = $('#new-message').val();
+        let messageArr = {author : author, message : message};
+        socket.emit('new message', messageArr);
         $('#new-message').val('');
       }
-    socket.on('chat message', function(msg){
-      let user = $('#user').val();
-      $('#messages-area').append($('<div class="message-author">').text(user)).append($('<div class="message">').text(msg));
+    socket.on('chat message', function(messageObj){
+      //let user = $('#user').val();
+      $('#messages-area').append($('<div class="message-author">').text(messageObj.author)).append($('<div class="message">').text(messageObj.message));
     });   
 
     </script>
