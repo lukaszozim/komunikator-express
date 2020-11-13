@@ -19,6 +19,7 @@
     socket.on('chat message', function(messageObj){
       //let user = $('#user').val();
       $('#messages-area').append($('<div class="message-author">').text(messageObj.author)).append($('<div class="message">').text(messageObj.message));
+        $('.conversations-section').scrollTop($('.conversations-section').height()); 
     });   
 
     </script>
